@@ -35,6 +35,9 @@ dependencies:
   connectivity_plus: ^5.0.2
   intl: ^0.18.1
   
+  # JSON Serialization
+  json_annotation: ^4.9.0
+  
   # UI
   cupertino_icons: ^1.0.6
 
