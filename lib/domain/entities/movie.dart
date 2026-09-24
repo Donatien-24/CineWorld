@@ -21,8 +21,8 @@ class Movie extends Equatable {
     this.voteCount,
   });
 
-  String get formattedRating => voteAverage != null
-      ? '${voteAverage!.toStringAsFixed(1)}/10'
+  String get formattedRating => voteAverage != null 
+      ? '${voteAverage!.toStringAsFixed(1)}/10' 
       : 'N/A';
 
   @override

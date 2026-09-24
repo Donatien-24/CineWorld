@@ -33,8 +33,8 @@ class TVShowModel extends Equatable {
     this.voteCount,
   });
 
-  String get fullPosterUrl => posterPath != null 
-      ? '${AppConfig.imageBaseUrl}/w500$posterPath' 
+  String get fullPosterUrl => posterPath != null
+      ? '${AppConfig.imageBaseUrl}/w500$posterPath'
       : 'https://via.placeholder.com/500x750';
 
   factory TVShowModel.fromJson(Map<String, dynamic> json) =>

@@ -14,4 +14,5 @@ class AppConstants {
   static const String loginEndpoint = '/authentication/token/validate_with_login';
   static const String requestTokenEndpoint = '/authentication/token/new';
   static const String sessionEndpoint = '/authentication/session/new';
+  static const String tmdbSignupUrl = 'https://www.themoviedb.org/signup';
 }

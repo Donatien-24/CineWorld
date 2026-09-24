@@ -16,7 +16,7 @@ class Person extends Equatable {
   });
 
   String get formattedPopularity => popularity != null 
-      ? '${popularity!.toStringAsFixed(1)}' 
+      ? popularity!.toStringAsFixed(1) 
       : 'N/A';
 
   @override

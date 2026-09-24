@@ -24,7 +24,7 @@ void main() {
     });
 
     test('should serialize to JSON correctly', () {
-      final model = const MovieModel(
+      const model = MovieModel(
         id: 1,
         title: 'Test Movie',
         posterPath: '/test.jpg',
@@ -38,7 +38,7 @@ void main() {
     });
 
     test('should generate full poster URL', () {
-      final model = const MovieModel(
+      const model = MovieModel(
         id: 1,
         title: 'Test Movie',
         posterPath: '/test.jpg',
@@ -48,7 +48,7 @@ void main() {
     });
 
     test('should return placeholder URL when poster is null', () {
-      final model = const MovieModel(
+      const model = MovieModel(
         id: 1,
         title: 'Test Movie',
       );

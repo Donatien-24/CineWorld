@@ -4,7 +4,11 @@ Une application Flutter moderne pour consulter les films et séries télévisée
 
 ## Fonctionnalités
 
-- **Authentification TMDB** : Connexion via l'API officielle TMDB.
+- **Authentification TMDB** : Connexion via le flux officiel TMDB (request token,
+   validation des identifiants puis session).
+- **Inscription** : TMDB ne fournit pas d'endpoint public pour créer un compte.
+   Le bouton d'inscription ouvre donc la page officielle TMDB dans le navigateur,
+   puis l'utilisateur revient se connecter dans l'application.
 - **Liste des Films & Séries TV** : Affichage des films et séries populaires avec défilement infini (pagination) et pull-to-refresh.
 - **Détails des Films** : Consultation des informations détaillées d'un film.
 - **Favoris** : Possibilité d'ajouter des films en favoris (sauvegardés localement).
@@ -38,8 +42,8 @@ Ce projet suit les principes de la **Clean Architecture** (Feature-first) pour a
 
 1. **Cloner le repository :**
    ```bash
-   git clone <url_du_repo>
-   cd <nom_du_dossier>
+   git clone https://github.com/Donatien-24/CineWorld.git
+   cd CineWorld
    ```
 
 2. **Installer les dépendances :**
@@ -57,6 +61,21 @@ Ce projet suit les principes de la **Clean Architecture** (Feature-first) pour a
    ```bash
    flutter run
    ```
+
+### Modèle d'authentification TMDB
+
+L'application utilise l'authentification utilisateur v3 de TMDB :
+
+1. `POST /authentication/token/new` crée un request token.
+2. `POST /authentication/token/validate_with_login` valide le nom
+   d'utilisateur et le mot de passe avec ce token.
+3. `POST /authentication/session/new` peut échanger le request token validé
+   contre une session TMDB.
+
+Le token API v4 est envoyé comme `Authorization: Bearer` par l'intercepteur Dio.
+TMDB ne fournit pas de refresh token OAuth ni d'API publique de création de
+compte. Le bouton « S'inscrire » ouvre donc `https://www.themoviedb.org/signup`.
+La déconnexion supprime les tokens locaux Hive.
 
 ## Tests
 

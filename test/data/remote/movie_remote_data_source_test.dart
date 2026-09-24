@@ -4,7 +4,6 @@ import 'package:mockito/annotations.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_tmdb_app/core/network/dio_client.dart';
 import 'package:flutter_tmdb_app/data/remote/movie_remote_data_source.dart';
-import 'package:flutter_tmdb_app/data/models/movie_model.dart';
 
 @GenerateMocks([DioClient])
 import 'movie_remote_data_source_test.mocks.dart';
@@ -19,7 +18,7 @@ void main() {
   });
 
   group('getPopularMovies', () {
-    final tPage = 1;
+    const tPage = 1;
     final tResponseData = {
       'page': 1,
       'results': [
