@@ -2,11 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../config/app_config.dart';
 import 'app_exception.dart';
+import 'auth_interceptor.dart';
+import '../../data/local/local_storage_service.dart';
 
 class DioClient {
   late final Dio _dio;
+  final LocalStorageService<String>? tokenStorage;
 
-  DioClient() {
+  DioClient({this.tokenStorage}) {
     _dio = Dio(BaseOptions(
       baseUrl: AppConfig.tmdbBaseUrl,
       connectTimeout: AppConfig.connectTimeout,
@@ -16,6 +19,10 @@ class DioClient {
         'Accept': 'application/json',
       },
     ));
+
+    if (tokenStorage != null) {
+      _dio.interceptors.add(AuthInterceptor(tokenStorage!));
+    }
 
     _dio.interceptors.add(PrettyDioLogger(
       requestHeader: true,
