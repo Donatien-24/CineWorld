@@ -9,7 +9,8 @@ class RegisterScreen extends StatefulWidget {
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProviderStateMixin {
+class _RegisterScreenState extends State<RegisterScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animController;
   late Animation<double> _fadeAnimation;
 
@@ -20,7 +21,8 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
       vsync: this,
       duration: const Duration(milliseconds: 700),
     );
-    _fadeAnimation = CurvedAnimation(parent: _animController, curve: Curves.easeInOut);
+    _fadeAnimation =
+        CurvedAnimation(parent: _animController, curve: Curves.easeInOut);
     _animController.forward();
   }
 
@@ -64,13 +66,15 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
                           borderRadius: BorderRadius.circular(18),
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFF6C63FF).withValues(alpha: 0.3),
+                              color: const Color(0xFF6C63FF)
+                                  .withValues(alpha: 0.3),
                               blurRadius: 16,
                               offset: const Offset(0, 6),
                             ),
                           ],
                         ),
-                        child: const Icon(Icons.movie_rounded, color: Colors.white, size: 35),
+                        child: const Icon(Icons.movie_rounded,
+                            color: Colors.white, size: 35),
                       ),
                       const SizedBox(height: 20),
                       const Text(
@@ -112,7 +116,8 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF6C63FF).withValues(alpha: 0.15),
+                              color: const Color(0xFF6C63FF)
+                                  .withValues(alpha: 0.15),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: const Icon(
@@ -134,7 +139,8 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
                       ),
                       const SizedBox(height: 16),
                       _buildStep('1', 'Visite themoviedb.org'),
-                      _buildStep('2', 'Clique sur "Join TMDB" en haut à droite'),
+                      _buildStep(
+                          '2', 'Clique sur "Join TMDB" en haut à droite'),
                       _buildStep('3', 'Crée ton compte gratuitement'),
                       _buildStep('4', 'Reviens ici et connecte-toi !'),
                     ],
@@ -149,7 +155,8 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
                     child: RichText(
                       text: TextSpan(
                         text: 'Déjà un compte ? ',
-                        style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
+                        style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.5)),
                         children: const [
                           TextSpan(
                             text: 'Se connecter',
@@ -199,7 +206,8 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
           const SizedBox(width: 12),
           Text(
             text,
-            style: TextStyle(color: Colors.white.withValues(alpha: 0.75), fontSize: 14),
+            style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.75), fontSize: 14),
           ),
         ],
       ),
@@ -227,12 +235,14 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
         icon: const Icon(Icons.open_in_new, color: Colors.white, size: 18),
         label: const Text(
           'Aller sur TMDB',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
       ),
     );
@@ -245,10 +255,12 @@ class _RegisterScreenState extends State<RegisterScreen> with SingleTickerProvid
     if (!launched && context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Impossible d\'ouvrir la page d\'inscription TMDB'),
+          content:
+              const Text('Impossible d\'ouvrir la page d\'inscription TMDB'),
           backgroundColor: const Color(0xFFE53935),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       );
     }
